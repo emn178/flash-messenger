@@ -1,0 +1,8 @@
+/*!
+ * [flash-messenger]{@link https://github.com/emn178/flash-messenger}
+ *
+ * @version 0.1.0
+ * @author Chen, Yi-Cyuan [emn178@gmail.com]
+ * @copyright Chen, Yi-Cyuan 2016
+ * @license MIT
+ */.flash-messages{position:absolute;z-index:10000;left:20px;right:20px;top:70px}.flash-message{position:relative;padding:15px 20px;margin-top:10px;color:#fff;border-radius:5px}.flash-message.nonclosable .flash-message-close{display:none}.flash-message-close{float:right;cursor:pointer}.flash-message.success{background-color:#8cc040}.flash-message.info,.flash-message.notice{background-color:#77C3E8}.flash-message.danger,.flash-message.error{background-color:#dd5749}.flash-message.alert,.flash-message.warning{background-color:#FF9800}

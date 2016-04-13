@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bootstrap Style</title>
+  <meta name="viewport" content="user-scalable=no, width=device-width">
+  <meta name="apple-mobile-web-app-capable" content="no">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script type="text/javascript" src="../../src/flash-messenger.js"></script>
+  <script>
+    if (location.protocol != 'file:') {
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-44208259-3', 'auto');
+      ga('send', 'pageview');
+    }
+  </script>
+</head>
+<body>
+  <div id="header">
+    <h1>Bootstrap Style</h1>
+    <a href="https://github.com/emn178/flash-messenger"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+  </div>
+  <div id="body">
+    <div id="description">
+      <p>
+        Set up and click "show" to see effect.
+      </p>
+    </div>
+    <div id="code-block">
+      <h3>Source Code</h3>
+      <pre class="brush: js">
+        var typeMap = {
+          error: &#39;danger&#39;,
+          notice: &#39;info&#39;,
+          alert: &#39;warning&#39;
+        };
+        flash.setting.appendTo = &#39;#flash-messenger&#39;;
+        flash.setting.message = &#39;&lt;div class=&quot;alert alert-{type}&quot;&gt;{message}&lt;i class=&quot;glyphicon glyphicon-remove&quot;&gt;&lt;/i&gt;&lt;/div&gt;&#39;;
+        flash.setting.closeHandler = &#39;.glyphicon-remove&#39;;
+        flash.setting.convert = function (options) {
+          options.type = typeMap[options.type] || options.type;
+        };
+      </pre>
+    </div>
+    <div id="main">
+      <div id="settings">
+        <label for="message">Message:</label><input id="message" type="text" value="Hello" />
+        <label for="type">Type:</label>
+        <select id="type">
+          <option value="success">Success</option>
+          <option value="notice">Notice</option>
+          <option value="info">Info</option>
+          <option value="warning">Warning</option>
+          <option value="alert">Alert</option>
+          <option value="error">Error</option>
+          <option value="danger">Danger</option>
+        </select>
+        <label for="sticky"><input id="sticky" type="checkbox" />Sticky</label>
+        <label for="closable"><input id="closable" type="checkbox" checked="checked" />Closable</label>
+      </div>
+      <div id="buttons">
+        <button id="show">Show</button>
+      </div>
+    </div>
+    <div id="flash-messenger">
+    </div>
+  </div>
+  <div id="footer">
+    © 2016 flash-messenger Demo
+  </div>
+  <script>
+    var typeMap = {
+      error: 'danger',
+      notice: 'info',
+      alert: 'warning'
+    };
+    flash.setting.appendTo = '#flash-messenger';
+    flash.setting.message = '<div class="alert alert-{type}">{message}<i class="glyphicon glyphicon-remove"></i></div>';
+    flash.setting.closeHandler = '.glyphicon-remove';
+    flash.setting.convert = function (options) {
+      options.type = typeMap[options.type] || options.type;
+    };
+    $('#show').click(function () {
+      flash($('#message').val(), {
+        type: $('#type').val(),
+        sticky: $('#sticky').is(':checked'),
+        closable: $('#closable').is(':checked')
+      });
+    });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shCore.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shThemeDefault.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shCore.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shBrushJScript.js"></script>
+  <script>
+    SyntaxHighlighter.all();
+  </script>
+</body>
+</html>

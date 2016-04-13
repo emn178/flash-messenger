@@ -1,0 +1,11 @@
+{
+  "name": "flash-messenger",
+  "version": "0.1.0",
+  "main": ["src/flash-messenger.js"],
+  "ignore": [
+    "samples"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.6"
+  }
+}
