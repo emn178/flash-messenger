@@ -4,7 +4,6 @@ A jQuery plugin provides a simple flash messages and interface.
 ## Demo
 [Default](https://emn178.github.io/flash-messenger/samples/default/)  
 [Custom](https://emn178.github.io/flash-messenger/samples/bootstrap/)  
-[Show message in top window from iframe](https://emn178.github.io/flash-messenger/samples/iframe/)  
 [Switch Methods](https://emn178.github.io/flash-messenger/samples/methods/)
 
 ## Download
