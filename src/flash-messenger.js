@@ -1,7 +1,7 @@
 /*!
  * [flash-messenger]{@link https://github.com/emn178/flash-messenger}
  *
- * @version 0.1.0
+ * @version 0.1.1
  * @author Chen, Yi-Cyuan [emn178@gmail.com]
  * @copyright Chen, Yi-Cyuan 2016
  * @license MIT
@@ -9,7 +9,7 @@
 (function ($) {
   'use strict';
 
-  var OPTIONS = ['type', 'time', 'sticky', 'fadeOut', 'closable'];
+  var OPTIONS = ['type', 'time', 'sticky', 'fadeOut', 'closable', 'scrollTo'];
   var TYPES = ['error', 'danger', 'info', 'notice', 'success', 'warning', 'alert'];
 
   var setting = {
@@ -22,7 +22,8 @@
       time: 3000,
       sticky: false,
       fadeOut: 1000,
-      closable: true
+      closable: true,
+      scrollTo: true
     },
     typesDefault: {
       error: {
@@ -34,7 +35,7 @@
     }
   };
 
-  var container, encorder = $('<div/>');
+  var container, encorder = $('<div/>'), screenHeight, screenWidth;
   function htmlEncode (message) {
     return encorder.text(message).html();
   }
@@ -68,7 +69,18 @@
     } else {
       div.addClass('nonclosable');
     }
-  } 
+    if (options.scrollTo) {
+      var rect = div[0].getBoundingClientRect();
+      if (rect.top < 0 || rect.top > screenHeight) {
+        div[0].scrollIntoView();
+      }
+    }
+  }
+
+  function resize() {
+    screenHeight = window.innerHeight || document.documentElement.clientHeight;
+    screenWidth = window.innerWidth || document.documentElement.clientWidth;
+  }
 
   var flash = function () {
     setting.method.apply(this, arguments);
@@ -86,7 +98,9 @@
     }
   });
 
-  $(document).on('ready page:load', function () {
+  $(window).resize(resize);
+
+  $(document).ready(resize).bind('ready page:load', function () {
     if (!container) {
       container = $(setting.container);
     }

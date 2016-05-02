@@ -18,6 +18,10 @@ You can also install flash-messenger by using Bower.
 bower install flash-messenger
 ```
 
+## Requirements
+
+[jQuery 1.8+](http://jquery.com/)
+
 ## Usage
 ```JavaScript
 flash('Messange');
@@ -45,6 +49,10 @@ Sets the duration to fade out in seconds.
 
 Sets the message can be closed or not.
 
+#### *scrollTo: boolean (default: `true`)*
+
+Scroll to message position if true.
+
 ### Default Setting
 You can change default setting.
 ```JavaScript
@@ -58,7 +66,8 @@ flash.setting = {
     time: 3000,
     sticky: false,
     fadeOut: 1000,
-    closable: true
+    closable: true,
+    scrollTo: true
   },
   typesDefault: {
     error: {
@@ -77,6 +86,13 @@ flash('Messange');
 flash('Messange', {type: 'error'});
 flash.error('Message');
 flash.info('Message', {sticky: true});
+```
+
+## Custom
+```JavaScript
+flash.setting.method = function (message, options) {
+  // overwrite implementation
+};
 ```
 
 ## License
