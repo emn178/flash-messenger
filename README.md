@@ -53,6 +53,10 @@ Sets the message can be closed or not.
 
 Scroll to message position if true.
 
+#### *html: boolean (default: `false`)*
+
+Sets the message if it can be html.
+
 ### Default Setting
 You can change default setting.
 ```JavaScript
@@ -67,7 +71,8 @@ flash.setting = {
     sticky: false,
     fadeOut: 1000,
     closable: true,
-    scrollTo: true
+    scrollTo: true,
+    html: false
   },
   typesDefault: {
     error: {

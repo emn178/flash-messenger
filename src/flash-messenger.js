@@ -1,7 +1,7 @@
 /*!
  * [flash-messenger]{@link https://github.com/emn178/flash-messenger}
  *
- * @version 0.1.1
+ * @version 0.2.0
  * @author Chen, Yi-Cyuan [emn178@gmail.com]
  * @copyright Chen, Yi-Cyuan 2016
  * @license MIT
@@ -9,7 +9,7 @@
 (function ($) {
   'use strict';
 
-  var OPTIONS = ['type', 'time', 'sticky', 'fadeOut', 'closable', 'scrollTo'];
+  var OPTIONS = ['type', 'time', 'sticky', 'fadeOut', 'closable', 'scrollTo', 'html'];
   var TYPES = ['error', 'danger', 'info', 'notice', 'success', 'warning', 'alert'];
 
   var setting = {
@@ -23,7 +23,8 @@
       sticky: false,
       fadeOut: 1000,
       closable: true,
-      scrollTo: true
+      scrollTo: true,
+      html: false
     },
     typesDefault: {
       error: {
@@ -57,7 +58,10 @@
   function show(message, options) {
     options = options || {};
     formatOptions(options);
-    var div = $(setting.message.replace('{message}', htmlEncode(message)).replace('{type}', options.type)).appendTo(container);
+    if (!options.html) {
+      message = htmlEncode(message);
+    }
+    var div = $(setting.message.replace('{message}', message).replace('{type}', options.type)).appendTo(container);
     var close = function () {
       div.remove();
     };
