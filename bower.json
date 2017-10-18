@@ -1,6 +1,6 @@
 {
   "name": "flash-messenger",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": ["src/flash-messenger.js"],
   "ignore": [
     "samples"

@@ -1,5 +1,9 @@
 # Change Log
 
+## v0.2.1 / 2017-10-18
+### Fixed
+- not working above jquery 3+.
+
 ## v0.2.0 / 2017-10-02
 ### Added
 - html option.
