@@ -1,9 +1,9 @@
 /*!
  * [flash-messenger]{@link https://github.com/emn178/flash-messenger}
  *
- * @version 0.2.1
+ * @version 0.3.0
  * @author Chen, Yi-Cyuan [emn178@gmail.com]
- * @copyright Chen, Yi-Cyuan 2016-2017
+ * @copyright Chen, Yi-Cyuan 2016-2019
  * @license MIT
  */
 (function ($) {
@@ -114,5 +114,5 @@
     }
   }
 
-  $(document).ready(resize).ready(load).bind('page:load', load);
+  $(document).ready(resize).ready(load).bind('page:load turbolinks:load', load);
 })(jQuery);

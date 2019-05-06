@@ -1,6 +1,6 @@
 {
   "name": "flash-messenger",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "A jQuery plugin provides a simple flash messages and interface.",
   "main": "src/flash-messenger.js",
   "devDependencies": {
